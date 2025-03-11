@@ -40,9 +40,11 @@ const NavBar = () => {
             <li className="cursor-pointer">CRISIS</li>
           </NavLink>
         </ul>
-        <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition">
-          Create Account
-        </button>
+        <NavLink to="/login">
+          <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition">
+            Create Account
+          </button>
+        </NavLink>
       </div>
     </nav>
   );
