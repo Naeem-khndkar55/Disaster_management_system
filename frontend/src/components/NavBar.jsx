@@ -1,7 +1,10 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ currentUser }) => {
+  const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
+  const [token, SetToken] = useState(true);
   return (
     <nav className="bg-blue-600 text-white p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
@@ -40,11 +43,19 @@ const NavBar = () => {
             <li className="cursor-pointer">CRISIS</li>
           </NavLink>
         </ul>
-        <NavLink to="/login">
-          <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition">
-            Create Account
-          </button>
-        </NavLink>
+
+        <div>
+          {token ? (
+            <div onClick={() => navigate("/account")}>myProfile</div>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-lg font-medium hover:bg-yellow-300 transition"
+            >
+              Create Account
+            </button>
+          )}
+        </div>
       </div>
     </nav>
   );

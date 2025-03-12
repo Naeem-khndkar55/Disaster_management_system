@@ -9,6 +9,7 @@ import Profile from "../src/pages/Profile";
 import Login from "../src/pages/Login";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Dashboard from "./pages/Dashboard";
 const App = () => {
   return (
     <div className="mx-4 sm:mx-[10%]">
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/account" element={<Profile />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
     </div>
