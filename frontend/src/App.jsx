@@ -10,6 +10,7 @@ import Login from "../src/pages/Login";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 const App = () => {
   return (
     <div className="mx-4 sm:mx-[10%]">
@@ -19,10 +20,31 @@ const App = () => {
         <Route path="/donate" element={<Donation />} />
         <Route path="/crisis" element={<Crisis />} />
         <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/inventory" element={<Inventory />} />
-        <Route path="/account" element={<Profile />} />
+        <Route
+          path="/inventory"
+          element={
+            <ProtectedRoute>
+              <Inventory />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
     </div>
